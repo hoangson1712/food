@@ -1,0 +1,39 @@
+CREATE DATABASE tomato;
+USE tomato;
+
+CREATE TABLE food(
+	food_id int auto_increment,
+	food_name varchar(255),
+	food_desc varchar(255),
+	food_price float,
+	food_image varchar(255),
+	food_category varchar(255),
+	primary key(food_id)
+);
+
+CREATE TABLE user(
+	user_id int auto_increment,
+	user_name varchar(255),
+	user_email varchar(255) unique,
+	user_password varchar(255),
+	primary key(user_id)
+);
+
+CREATE TABLE cart(
+	cart_id int auto_increment,
+	cart_user_id int,
+	cart_food_id int,
+	cart_food_quantity int,
+	primary key(cart_id)
+);
+
+CREATE TABLE orders(
+    order_id int auto_increment,
+    order_user_id int,
+    order_items text,
+    order_amount float,
+    order_address text,
+    order_status varchar(255),
+    order_date date,
+    primary key(order_id)
+);
